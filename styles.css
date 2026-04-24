@@ -1,4 +1,12 @@
-/* ========== VARIÁVEIS (fallback para browsers sem suporte a CSS inline) ========== */
+/* ========== HERO: background-image substituído por <img> real (LCP fix) ========== */
+/* O estilo crítico já está inline no <head>. Esta regra cobre o mobile. */
+@media (max-width: 900px) {
+    .hero-background-img {
+        background-attachment: scroll;
+    }
+}
+
+
 :root {
     --verde-principal: #00D700;
     --verde-escuro: #00B800;

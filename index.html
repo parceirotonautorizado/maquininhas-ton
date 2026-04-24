@@ -24,8 +24,6 @@
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 
-    <!-- LCP: pré-carrega a imagem hero com máxima prioridade -->
-    <link rel="preload" as="image" href="https://raw.githubusercontent.com/parceirotonautorizado/images/refs/heads/main/solimoes-hero-home-desktop.webp" fetchpriority="high" type="image/webp">
 
     <!-- Fonte: carregamento assíncrono sem FOIT -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,7 +48,7 @@
         .logo-ton{height:34px;width:auto;flex-shrink:0}
         .header-actions{display:flex;align-items:center;gap:12px}
         .hero{position:relative;color:var(--branco);padding:90px 0 80px;overflow:hidden;isolation:isolate;min-height:500px;display:flex;align-items:center}
-        .hero-background{position:absolute;top:0;left:0;width:100%;height:100%;background-image:url('https://raw.githubusercontent.com/parceirotonautorizado/images/refs/heads/main/solimoes-hero-home-desktop.webp');background-size:cover;background-position:center 30%;background-repeat:no-repeat}
+        .hero-background-img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;}
         .hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(160deg,rgba(0,0,0,.85) 0%,rgba(0,15,0,.75) 50%,rgba(0,0,0,.9) 100%);z-index:1}
         .hero::before{content:'';position:absolute;top:-200px;right:-300px;width:800px;height:800px;background:radial-gradient(circle,rgba(0,215,0,.15) 0%,transparent 65%);pointer-events:none;z-index:2}
         .hero::after{content:'';position:absolute;bottom:-100px;left:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(0,215,0,.08) 0%,transparent 65%);pointer-events:none;z-index:2}
@@ -118,7 +116,7 @@
     <!-- Header -->
     <header class="header">
         <div class="container">
-            <img src="https://raw.githubusercontent.com/parceirotonautorizado/images/refs/heads/main/logo-parceiro-ton.webp" alt="Ton" class="logo-ton" width="100" height="34" fetchpriority="high" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <img src="https://raw.githubusercontent.com/parceirotonautorizado/images/refs/heads/main/logo-parceiro-ton.webp" alt="Ton" class="logo-ton" width="100" height="34" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
             <span style="display:none; font-size:26px; font-weight:900; color:#00D700; letter-spacing:-1px;">TON</span>
             <div class="header-actions">
                 <a href="#secao-maquininhas" class="btn-primario">Escolha sua maquininha</a>
@@ -128,8 +126,22 @@
 
     <!-- Hero Section -->
     <section class="hero" id="hero">
-        <!-- LCP: imagem de fundo declarada via CSS inline para evitar bloqueio de render -->
-        <div class="hero-background" role="img" aria-label="Maquininha Ton"></div>
+        <!--
+            LCP FIX: imagem real <img> em vez de background-image CSS.
+            O preload scanner do browser detecta e baixa este recurso
+            imediatamente ao parsear o HTML, eliminando o atraso de carregamento.
+            fetchpriority="high" garante prioridade máxima na fila de rede.
+        -->
+        <img
+            src="https://raw.githubusercontent.com/parceirotonautorizado/images/refs/heads/main/solimoes-hero-home-desktop.webp"
+            alt=""
+            class="hero-background-img"
+            fetchpriority="high"
+            decoding="sync"
+            aria-hidden="true"
+            width="1440"
+            height="600"
+        >
 
         <!-- Overlay escuro -->
         <div class="hero-overlay"></div>
