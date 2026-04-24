@@ -171,11 +171,6 @@ body {
     background-size: cover;
     background-position: center 30%;
     background-repeat: no-repeat;
-    /* Removido background-attachment: fixed (causa repaint pesado) */
-    z-index: 0;
-    /* Removido transform: scale(1.05) (causa blur e repaint) */
-    /* Adicionado gradiente fallback enquanto imagem carrega */
-    background-color: #111111;
 }
 
 .hero-overlay {
