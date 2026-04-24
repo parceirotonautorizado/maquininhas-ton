@@ -88,13 +88,49 @@ src="https://www.facebook.com/tr?id=25713238995019325&ev=PageView&noscript=1"
         </div>
     </header>
 
-    <!-- Hero com Parallax -->
-    <section class="hero" id="hero">
-        <!-- ⚡ Imagem de fundo com fetchpriority="high" para melhorar LCP -->
-        <div class="hero-background" style="background-image: url('COLE_AQUI_URL_DA_IMAGEM_DE_FUNDO');" fetchpriority="high"></div>
-        
-        <!-- Overlay escuro para garantir legibilidade do texto -->
-        <div class="hero-overlay"></div>
+    <!-- Hero com Parallax (otimizado) -->
+<section class="hero" id="hero">
+    <!-- Imagem de fundo otimizada -->
+    <div class="hero-background" 
+         style="background-image: url('https://www.ton.com.br/assets/images/hero-background.webp');"
+         fetchpriority="high"></div>
+    
+    <!-- Overlay escuro -->
+    <div class="hero-overlay"></div>
+    
+    <div class="container">
+        <div class="hero-content">
+            <span class="hero-badge">Menores taxas do Brasil</span>
+            <!-- Título em texto puro (não imagem) melhora LCP -->
+            <h1 class="hero-titulo">Maquininha com a <span class="destaque">menor taxa</span>!</h1>
+            <p class="hero-descricao">Pix grátis ilimitado, débito a 0,57% e crédito a 0,57%. Receba em 1 dia útil ou na hora.</p>
+            <div class="hero-ctas">
+                <a href="#secao-maquininhas" class="btn-primario">Escolha sua maquininha</a>
+                <a href="https://wa.me/5545999663199" class="btn-whatsapp" target="_blank" rel="noopener">
+                    <span>💬</span> WhatsApp
+                </a>
+            </div>
+        </div>
+        <div class="hero-taxas">
+            <div class="taxa-mini">
+                <div class="taxa-mini-valor gratis">GRÁTIS</div>
+                <div class="taxa-mini-metodo">Pix</div>
+            </div>
+            <div class="taxa-mini">
+                <div class="taxa-mini-valor">0,57%</div>
+                <div class="taxa-mini-metodo">Débito</div>
+            </div>
+            <div class="taxa-mini">
+                <div class="taxa-mini-valor">0,57%</div>
+                <div class="taxa-mini-metodo">Crédito 1x</div>
+            </div>
+            <div class="taxa-mini">
+                <div class="taxa-mini-valor">7,97%</div>
+                <div class="taxa-mini-metodo">Crédito 12x</div>
+            </div>
+        </div>
+    </div>
+</section>
         
         <div class="container">
             <div class="hero-content">
