@@ -1324,3 +1324,17 @@ body {
         grid-template-columns: 1fr;
     }
 }
+/* ========== OTIMIZAÇÃO DE PERFORMANCE ========== */
+.secao-recebimento,
+.secao-maquininhas,
+.secao-tapton,
+.secao-simulador,
+.secao-beneficios,
+.secao-bandeiras,
+.secao-comparativo,
+.secao-depoimentos,
+.secao-faq,
+.footer {
+    content-visibility: auto;
+    contain-intrinsic-size: 500px;
+}
