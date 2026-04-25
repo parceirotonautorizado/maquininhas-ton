@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -17,22 +16,17 @@
     <meta name="twitter:description" content="Maquininhas Ton com Pix grátis e taxas imperdíveis. Garanta a sua!">
     <link rel="canonical" href="https://parceirotonautorizado.github.io/maquininhas-ton/">
 
-    <!-- Preconexão com origens críticas (máx. 2-3 preconnects, o resto dns-prefetch) -->
-    <link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-    <link rel="dns-prefetch" href="https://connect.facebook.net">
+    <!-- Preconexão com domínios de terceiros -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://connect.facebook.net">
+    <link rel="preconnect" href="https://www.ton.com.br">
+    <link rel="dns-prefetch" href="https://raw.githubusercontent.com">
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 
-    <!--
-        LCP CRÍTICO: preload da imagem hero com maxima prioridade.
-        O browser inicia o download IMEDIATAMENTE ao ler esta linha,
-        em paralelo com o parse do resto do HTML.
-        crossorigin necessario pois raw.githubusercontent.com e cross-origin.
-    -->
-    <link rel="preload" as="image" href="https://raw.githubusercontent.com/parceirotonautorizado/images/refs/heads/main/solimoes-hero-home-desktop.webp" fetchpriority="high" crossorigin="anonymous">
 
-    <!-- Fonte: carregamento assincrono sem FOIT -->
+    <!-- Fonte: carregamento assíncrono sem FOIT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap"></noscript>
 
@@ -78,12 +72,7 @@
     <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="styles.css"></noscript>
 
-    <!--
-        Scripts de terceiros: todos adiados com defer/async para nao bloquear
-        o FCP nem o LCP. O GTM carrega depois do DOMContentLoaded.
-    -->
-
-    <!-- Google Tag Manager (async nao bloqueia parser) -->
+    <!-- Google Tag Manager -->
     <script>
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -98,24 +87,21 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-TQRTPN8BZ7', { 'send_page_view': false });
-        window.addEventListener('load', function(){ gtag('event', 'page_view'); });
+        gtag('config', 'G-TQRTPN8BZ7');
     </script>
 
-    <!-- Meta Pixel: adiado para depois do load -->
+    <!-- Meta Pixel Code -->
     <script>
-        window.addEventListener('load', function() {
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '25713238995019325');
-            fbq('track', 'PageView');
-        });
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '25713238995019325');
+        fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=25713238995019325&ev=PageView&noscript=1"
@@ -130,7 +116,7 @@
     <!-- Header -->
     <header class="header">
         <div class="container">
-            <img src="images/logo.webp" alt="Ton" class="logo-ton" width="100" height="34" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <img src="https://raw.githubusercontent.com/parceirotonautorizado/images/refs/heads/main/logo-parceiro-ton.webp" alt="Ton" class="logo-ton" width="100" height="34" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
             <span style="display:none; font-size:26px; font-weight:900; color:#00D700; letter-spacing:-1px;">TON</span>
             <div class="header-actions">
                 <a href="#secao-maquininhas" class="btn-primario">Escolha sua maquininha</a>
@@ -147,12 +133,11 @@
             fetchpriority="high" garante prioridade máxima na fila de rede.
         -->
         <img
-            src="images/hero.webp"
+            src="https://raw.githubusercontent.com/parceirotonautorizado/images/refs/heads/main/solimoes-hero-home-desktop.webp"
             alt=""
             class="hero-background-img"
             fetchpriority="high"
             decoding="sync"
-            crossorigin="anonymous"
             aria-hidden="true"
             width="1440"
             height="600"
@@ -251,7 +236,7 @@
                     <span class="tag-destaque">MAIS VENDIDO</span>
                     <div class="card-maquininha-imagem-wrapper">
                         <img
-                            src="images/t3-smart.webp"
+                            src="https://raw.githubusercontent.com/parceirotonautorizado/images/refs/heads/main/t3-smart-showcase-new.webp"
                             alt="Maquininha T3 Smart Ton - Android, rápida, melhor bateria"
                             class="card-maquininha-imagem"
                             loading="lazy"
@@ -287,7 +272,7 @@
                 <div class="card-maquininha">
                     <div class="card-maquininha-imagem-wrapper">
                         <img
-                            src="images/t3.webp"
+                            src="https://raw.githubusercontent.com/parceirotonautorizado/images/refs/heads/main/t3-showcase-new.webp"
                             alt="Maquininha T3 Ton - comprovante impresso, chip 3G"
                             class="card-maquininha-imagem"
                             loading="lazy"
@@ -314,14 +299,14 @@
                         <li>Garantia vitalícia</li>
                         <li>Parcelamento em até 18x</li>
                     </ul>
-                    <a href="https://www.ton.com.br/checkout/cart?userTag=tonmega_tier&productId=TONMEGA_TIER_S920&userAnticipation=1&referrer=FA50C2AD-7A39-46F5-BCA1-ECDD99F7A331" class="btn-primario">Escolher T3</a>
+                    <a href="https://www.ton.com.br/checkout/cart?userTag=tonmega_tier&productId=TONMEGA_TIER_SMART_POS&userAnticipation=1&referrer=FA50C2AD-7A39-46F5-BCA1-ECDD99F7A331&utm_medium=invite_share&utm_source=revendedor&machineName=t1&gtm_debug=1715729523579" class="btn-primario">Escolher T3</a>
                 </div>
 
                 <!-- T2 -->
                 <div class="card-maquininha">
                     <div class="card-maquininha-imagem-wrapper">
                         <img
-                            src="images/t2.webp"
+                            src="https://raw.githubusercontent.com/parceirotonautorizado/images/refs/heads/main/t2-showcase-new.webp"
                             alt="Maquininha T2 Ton - compacta, chip 3G, NFC"
                             class="card-maquininha-imagem"
                             loading="lazy"
@@ -355,7 +340,7 @@
                 <div class="card-maquininha">
                     <div class="card-maquininha-imagem-wrapper">
                         <img
-                            src="images/t1.webp"
+                            src="https://raw.githubusercontent.com/parceirotonautorizado/images/refs/heads/main/t1-showcase-new.webp"
                             alt="Maquininha T1 Ton - compacta, conecta com celular"
                             class="card-maquininha-imagem"
                             loading="lazy"
@@ -617,17 +602,77 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
+
+            <!-- Logo Parceiro Ton no rodapé — obrigatório pela Diretriz de Criação de Website, Regra 1 -->
+            <div class="footer-logo">
+                <img
+                    src="https://raw.githubusercontent.com/parceirotonautorizado/images/refs/heads/main/logo-parceiro-ton.webp"
+                    alt="Parceiro Ton"
+                    class="footer-logo-img"
+                    width="120"
+                    height="41"
+                    loading="lazy"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';"
+                >
+                <span class="footer-logo-fallback" style="display:none;">Parceiro Ton</span>
+            </div>
+
             <div class="footer-grid">
                 <div class="footer-col"><h4>Soluções</h4><ul><li>Conta Ton</li><li>Baú do Ton</li><li>TapTon</li><li>Tap to Pay no iPhone</li><li>Link de Pagamento</li><li>Pix na Maquininha</li><li>Receba na hora</li><li>Cartão de Crédito e Débito</li><li>Seguros Ton</li><li>Limite da conta</li><li>Capital de Giro</li></ul></div>
                 <div class="footer-col"><h4>Ton</h4><ul><li>Plano e taxas</li><li>Ton pro MEI e PJ</li><li>Seja um consultor</li><li>Blog</li><li>Baixe o Aplicativo</li><li>Central de Ajuda</li><li><a href="https://wa.me/5545999663199" target="_blank" rel="noopener noreferrer">Atendimento por WhatsApp</a></li></ul></div>
-                <div class="footer-col"><h4>Institucional</h4><ul><li><a href="#">Políticas de Privacidade</a></li><li><a href="#">Portal de Privacidade</a></li><li><a href="#">Política de Cookies</a></li><li><a href="#">Preferências de Cookies</a></li><li><a href="#">Termos e Condições de Uso</a></li><li><a href="#">Política Institucional PLD-FTP</a></li></ul></div>
+                <div class="footer-col"><h4>Institucional</h4><ul><li><a href="#">Políticas de Privacidade</a></li><li><a href="#">Portal de Privacidade</a></li><li><a href="#" id="link-politica-cookies">Política de Cookies</a></li><li><a href="#" id="link-preferencias-cookies">Preferências de Cookies</a></li><li><a href="#">Termos e Condições de Uso</a></li><li><a href="#">Política Institucional PLD-FTP</a></li></ul></div>
             </div>
+
+            <!-- Aviso legal obrigatório — Diretriz de Criação de Website, Regra 2 -->
+            <div class="footer-aviso-legal">
+                <p>Declaramos, para todos os fins, que este canal é de titularidade de um Parceiro Renda Ton/Renda Extra, que oferece descontos para aquisição dos produtos e serviços do Ton. Este ambiente não se confunde com os canais oficiais do Ton.</p>
+            </div>
+
             <div class="footer-bottom">
-                <p>© 2026 Ton. Todos os direitos reservados.</p>
+                <p>© 2026 Parceiro Consultor Ton. Todos os direitos reservados.</p>
                 <p>Consulte as taxas atualizadas no aplicativo Ton. As taxas mencionadas são válidas para a data de publicação e estão sujeitas a alterações conforme as condições de venda e o prazo de recebimento escolhido.</p>
             </div>
         </div>
     </footer>
+
+    <!-- Banner de Cookies LGPD — Diretriz de Criação de Website, Regra 6
+         Checkboxes opcionais desmarcados por padrão, conforme exigência da ANPD -->
+    <div id="cookie-banner" class="cookie-banner" role="dialog" aria-labelledby="cookie-titulo" aria-modal="false">
+        <div class="cookie-banner-inner">
+            <div class="cookie-banner-texto">
+                <p id="cookie-titulo"><strong>🍪 Utilizamos cookies</strong></p>
+                <p>Usamos cookies para melhorar sua experiência, personalizar conteúdo e analisar nosso tráfego. Você pode gerenciar suas preferências abaixo. Os cookies necessários para o funcionamento do site não podem ser desativados.</p>
+            </div>
+            <div class="cookie-banner-opcoes">
+                <div class="cookie-opcao">
+                    <label class="cookie-switch" aria-label="Cookies necessários, sempre ativos">
+                        <input type="checkbox" id="cookie-necessario" checked disabled>
+                        <span class="cookie-slider"></span>
+                    </label>
+                    <span>Necessários <em>(sempre ativos)</em></span>
+                </div>
+                <div class="cookie-opcao">
+                    <label class="cookie-switch" aria-label="Cookies analíticos">
+                        <input type="checkbox" id="cookie-analiticos">
+                        <span class="cookie-slider"></span>
+                    </label>
+                    <span>Analíticos</span>
+                </div>
+                <div class="cookie-opcao">
+                    <label class="cookie-switch" aria-label="Cookies de marketing">
+                        <input type="checkbox" id="cookie-marketing">
+                        <span class="cookie-slider"></span>
+                    </label>
+                    <span>Marketing</span>
+                </div>
+            </div>
+            <div class="cookie-banner-botoes">
+                <button id="cookie-btn-rejeitar" class="cookie-btn cookie-btn-outline">Rejeitar opcionais</button>
+                <button id="cookie-btn-salvar" class="cookie-btn cookie-btn-outline">Salvar preferências</button>
+                <button id="cookie-btn-aceitar" class="cookie-btn cookie-btn-primario">Aceitar todos</button>
+            </div>
+        </div>
+    </div>
 
     <script src="scripts.js" defer></script>
 </body>
