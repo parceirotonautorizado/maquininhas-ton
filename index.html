@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -16,17 +17,22 @@
     <meta name="twitter:description" content="Maquininhas Ton com Pix grátis e taxas imperdíveis. Garanta a sua!">
     <link rel="canonical" href="https://parceirotonautorizado.github.io/maquininhas-ton/">
 
-    <!-- Preconexão com domínios de terceiros -->
-    <link rel="preconnect" href="https://www.googletagmanager.com">
-    <link rel="preconnect" href="https://connect.facebook.net">
-    <link rel="preconnect" href="https://www.ton.com.br">
-    <link rel="dns-prefetch" href="https://raw.githubusercontent.com">
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-
-
-    <!-- Fonte: carregamento assíncrono sem FOIT -->
+    <!-- Preconexão com origens críticas (máx. 2-3 preconnects, o resto dns-prefetch) -->
+    <link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://connect.facebook.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!--
+        LCP CRÍTICO: preload da imagem hero com maxima prioridade.
+        O browser inicia o download IMEDIATAMENTE ao ler esta linha,
+        em paralelo com o parse do resto do HTML.
+        crossorigin necessario pois raw.githubusercontent.com e cross-origin.
+    -->
+    <link rel="preload" as="image" href="https://raw.githubusercontent.com/parceirotonautorizado/images/refs/heads/main/solimoes-hero-home-desktop.webp" fetchpriority="high" crossorigin="anonymous">
+
+    <!-- Fonte: carregamento assincrono sem FOIT -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap"></noscript>
 
@@ -72,7 +78,12 @@
     <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="styles.css"></noscript>
 
-    <!-- Google Tag Manager -->
+    <!--
+        Scripts de terceiros: todos adiados com defer/async para nao bloquear
+        o FCP nem o LCP. O GTM carrega depois do DOMContentLoaded.
+    -->
+
+    <!-- Google Tag Manager (async nao bloqueia parser) -->
     <script>
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -87,21 +98,24 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-TQRTPN8BZ7');
+        gtag('config', 'G-TQRTPN8BZ7', { 'send_page_view': false });
+        window.addEventListener('load', function(){ gtag('event', 'page_view'); });
     </script>
 
-    <!-- Meta Pixel Code -->
+    <!-- Meta Pixel: adiado para depois do load -->
     <script>
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}(window, document,'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '25713238995019325');
-        fbq('track', 'PageView');
+        window.addEventListener('load', function() {
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '25713238995019325');
+            fbq('track', 'PageView');
+        });
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=25713238995019325&ev=PageView&noscript=1"
@@ -138,6 +152,7 @@
             class="hero-background-img"
             fetchpriority="high"
             decoding="sync"
+            crossorigin="anonymous"
             aria-hidden="true"
             width="1440"
             height="600"
